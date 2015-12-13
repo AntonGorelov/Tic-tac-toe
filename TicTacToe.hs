@@ -40,3 +40,8 @@ move n p [[a,b,c], [d,e,f], [g,h,i]]
   | n == 8 && h == 0 = [[a,b,c], [d,e,f], [g,p,i]]
   | n == 9 && i == 0 = [[a,b,c], [d,e,f], [g,h,p]]
   | otherwise = error "incorrect move"
+  
+isRow :: Field -> Bool
+isRow [[a,b,c], [d,e,f], [g,h,i]] = (a == b && b == c && a /= 0) || (d == e && e == f && d /= 0) || (g == h && h == i && g /= 0)
+  || (a == d && d == g && a /= 0) || (b == e && e == h && b /= 0) || (c == f && f == i && c /= 0) || (a == e && e == i && a /= 0)
+  || (c == e && e == g && c /= 0)
